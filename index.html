@@ -1,13 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Archivo+Black&family=Bungee&family=Bungee+Inline&family=Bungee+Shade&family=Inter:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&family=Rubik:wght@500;600;700&family=Saira+Stencil+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="icon" href="/JS 231 kitchen (1).png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css" />
+    <title>Kitchen &mdash; never cook lunch</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#">
+        <img class="logo" alt="JS 23/1 logo" src="/JS 231 kitchen (1).png" />
+      </a>
+      <p class="greet">Welcome to our kitchen !</p>
+    </header>
+
+    <section class="section-hero">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h1 class="heading-primary">
+            A delicious meal delivered to you every single day
+          </h1>
+          <p class="hero-description">
+            The marvelous and delicious 365-days-per-year food that will make
+            your sense of taste to the next level. Tailored to your personal
+            tastes and nutritional needs.
+          </p>
+          <button class="btn btn-log margin-right-sm">Log In</button>
+          <button class="btn btn-sign">Sign In &darr;</button>
+
+          <div class="delivered-meal">
+            <div class="delivered-imgs">
+              <img src="/customers/customer-1.jpg" alt="Customer photo" />
+              <img src="/customers/customer-2.jpg" alt="Customer photo" />
+              <img src="/customers/customer-3.jpg" alt="Customer photo" />
+              <img src="/customers/customer-4.jpg" alt="Customer photo" />
+              <img src="/customers/customer-5.jpg" alt="Customer photo" />
+              <img src="/customers/customer-6.jpg" alt="Customer photo" />
+            </div>
+            <p class="delivered-text"><span>250,000+</span> meals last year!</p>
+          </div>
+        </div>
+        <div class="hero-img-box">
+          <img
+            src="/mae-mu-I7A_pHLcQK8-unsplash.jpg"
+            class="hero-img"
+            alt="Burger on the table with the Cola in the background"
+          />
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container grid grid--footer">
+        <nav class="logo-col">
+          <a href="#" class="footer-logo">
+            <img
+              class="logo"
+              alt="JS 23/1 logo"
+              src="/JS 231 kitchen (1).png"
+            />
+          </a>
+
+          <ul class="social-links">
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
+              ></a>
+            </li>
+          </ul>
+
+          <p class="copyright">
+            Copyright &copy; <span class="year">2027</span> by JS 23/1 kitchen,
+            Inc. All rights reserved.
+          </p>
+        </nav>
+        <div class="address-col">
+          <p class="footer-heading">Contact us</p>
+          <address class="contacts">
+            <p class="address">
+              623 Harrison St., 2nd Floor, San Francisco, CA 94107
+            </p>
+            <p>
+              <a class="footer-link" href="tel:415-201-6370">415-201-6370</a
+              ><br />
+              <a class="footer-link" href="mailto:hello@omnifood.com"
+                >hello@js23kitchen.com</a
+              >
+            </p>
+          </address>
+        </div>
+        <nav class="nav-col">
+          <p class="footer-heading">Account</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="">Create account</a></li>
+            <li><a class="footer-link" href="#">Sign in</a></li>
+            <li><a class="footer-link" href="#">iOS app</a></li>
+            <li><a class="footer-link" href="#">Android app</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="">About Omnifood</a></li>
+            <li><a class="footer-link" href="#">Cooking partners</a></li>
+            <li><a class="footer-link" href="#">For Business</a></li>
+            <li><a class="footer-link" href="#">Careers</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">Recipe directory</a></li>
+            <li><a class="footer-link" href="#">Help center</a></li>
+            <li><a class="footer-link" href="#">Privacy & terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
     <script type="module" src="script.js"></script>
     <script type="module" src="./modules/firebase.js"></script>
-</body>
+  </body>
 </html>
