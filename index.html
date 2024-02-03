@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Archivo+Black&family=Bungee&family=Bungee+Inline&family=Bungee+Shade&family=Inter:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&family=Rubik:wght@500;600;700&family=Saira+Stencil+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/JS 231 kitchen (1).png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Kitchen &mdash; never cook lunch</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#">
+        <img class="logo" alt="JS 23/1 logo" src="/JS 231 kitchen (1).png" />
+      </a>
+    </header>
+
+    <section class="section-hero">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h1 class="heading-primary">
+            A delicious meal delivered to you every single day
+          </h1>
+          <p class="hero-description">
+            The marvelous and delicious 365-days-per-year food that will make
+            your sense of taste to the next level. Tailored to your personal
+            tastes and nutritional needs.
+          </p>
+          <button class="btn btn-log margin-right-sm">Log In</button>
+          <button class="btn btn-sign">Sign In &darr;</button>
+
+          <div class="delivered-meal">
+            <div class="delivered-imgs">
+              <img src="/customers/customer-1.jpg" alt="Customer photo" />
+              <img src="/customers/customer-2.jpg" alt="Customer photo" />
+              <img src="/customers/customer-3.jpg" alt="Customer photo" />
+              <img src="/customers/customer-4.jpg" alt="Customer photo" />
+              <img src="/customers/customer-5.jpg" alt="Customer photo" />
+              <img src="/customers/customer-6.jpg" alt="Customer photo" />
+            </div>
+            <p class="delivered-text"><span>250,000+</span> meals last year!</p>
+          </div>
+        </div>
+        <div class="hero-img-box">
+          <img
+            src="/mae-mu-I7A_pHLcQK8-unsplash.jpg"
+            class="hero-img"
+            alt="Burger on the table with the Cola in the background"
+          />
+        </div>
+      </div>
+    </section>
+
     <script type="module" src="script.js"></script>
     <script type="module" src="./modules/firebase.js"></script>
-</body>
+  </body>
 </html>
