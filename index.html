@@ -65,7 +65,152 @@
         </div>
       </div>
     </section>
+    <!--  -->
 
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <form class="formContainer">
+        <h2 class="formHeading">Please Sign in</h2>
+        <!-- NAME and LASTNAME -->
+        <p class="locationHeading">Full Name</p>
+        <div class="nameLastname">
+          <input
+            type="text"
+            id="name"
+            placeholder="Your name"
+            name="name"
+            class="textInput"
+            required
+          />
+
+          <input
+            type="text"
+            id="lastname"
+            placeholder="Your lastname"
+            name="lastname"
+            class="textInput"
+            required
+          />
+        </div>
+
+        <!-- LOCATION -->
+        <p class="locationHeading">Location</p>
+
+        <div class="locationDiv">
+          <input
+            type="text"
+            id="city"
+            placeholder="City"
+            name="city"
+            class="textInput"
+            required
+          />
+
+          <input
+            type="text"
+            id="postCode"
+            placeholder="Post Code"
+            name="postCode"
+            class="textInput"
+            required
+          />
+        </div>
+        <!-- USERNAME -->
+        <div class="direction-column">
+          <label for="username">
+            <strong>Username</strong>
+          </label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Your username"
+            name="username"
+            class="textInput"
+            required
+          />
+        </div>
+
+        <!-- EMAIL -->
+        <div class="direction-column">
+          <label for="email">
+            <strong>E-mail</strong>
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Your Email"
+            name="email"
+            class="textInput"
+            required
+          />
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="direction-column">
+          <label for="psw">
+            <strong>Password</strong>
+          </label>
+          <input
+            type="password"
+            id="psw"
+            placeholder="Your Password"
+            name="psw"
+            class="textInput"
+            required
+          />
+        </div>
+
+        <!-- FORM BUTTONS -->
+        <button type="submit" class="btn approve">Sign in</button>
+        <!-- <button type="button" class="btn cancel">Close</button> -->
+        <!-- onclick="closeForm()" -->
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <!-- LOG IN FORM -->
+
+    <div class="modal1 hidden">
+      <button class="close-modal1">&times;</button>
+      <form class="formContainer1">
+        <h2 class="formHeading1">Please Log In</h2>
+        <!-- USERNAME -->
+        <div class="direction-column">
+          <label for="username">
+            <strong>Username</strong>
+          </label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Your username"
+            name="username"
+            class="textInput1"
+            required
+          />
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="direction-column">
+          <label for="psw">
+            <strong>Password</strong>
+          </label>
+          <input
+            type="password"
+            id="psw"
+            placeholder="Your Password"
+            name="psw"
+            class="textInput1"
+            required
+          />
+        </div>
+
+        <!-- FORM BUTTONS -->
+        <button type="submit" class="btn1 approve">Log in</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <!--  -->
     <footer class="footer">
       <div class="container grid grid--footer">
         <nav class="logo-col">
