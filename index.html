@@ -41,8 +41,10 @@
             your sense of taste to the next level. Tailored to your personal
             tastes and nutritional needs.
           </p>
-          <button class="btn btn-log margin-right-sm">Log In</button>
-          <button class="btn btn-sign">Sign In &darr;</button>
+          <button class="btn btn-log margin-right-sm" id="loginBtn">
+            Log In
+          </button>
+          <button class="btn btn-sign" id="signInBtn">Sign In &darr;</button>
 
           <div class="delivered-meal">
             <div class="delivered-imgs">
@@ -65,7 +67,6 @@
         </div>
       </div>
     </section>
-
     <footer class="footer">
       <div class="container grid grid--footer">
         <nav class="logo-col">
@@ -145,7 +146,7 @@
         </nav>
       </div>
     </footer>
-
+    <script type="module" src="./modules/regForm.js"></script>
     <script type="module" src="script.js"></script>
     <script type="module" src="./modules/firebase.js"></script>
   </body>
