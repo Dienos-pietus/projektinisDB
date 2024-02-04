@@ -356,7 +356,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
+  width: 50%;
   background-color: #000;
   padding: 6rem;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
@@ -397,17 +397,18 @@ body {
   border: 3px solid #856b39;
   z-index: 9;
 }
-.formContainer {
-  max-width: 500px;
+.formContainer,
+.formContainer1 {
+  max-width: 100%;
   padding: 20px;
   background-color: #000;
 }
 
-.formContainer1 {
+/* .formContainer1 {
   max-width: 500px;
   padding: 20px;
   background-color: #000;
-}
+} */
 
 .formContainer .textInput,
 .formContainer1 .textInput1 {
