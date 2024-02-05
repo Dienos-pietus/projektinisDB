@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Archivo+Black&family=Bungee&family=Bungee+Inline&family=Bungee+Shade&family=Inter:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&family=Rubik:wght@500;600;700&family=Saira+Stencil+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="icon" href="JS 231 kitchen (1).png" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./queries.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <title>Kitchen &mdash; never cook lunch</title>
+  </head>
+  <body>
+    <header
+      class="header"
+      style="display: flex; justify-content: space-between"
+    >
+      <a href="#">
+        <img class="logo" alt="JS 23/1 logo" src="JS 231 kitchen (1).png" />
+      </a>
+      <p class="greet">Welcome to our kitchen !</p>
+      <div>
+        <button
+          type="button"
+          style="
+            background-color: rgb(253, 170, 170);
+            border: none;
+            color: black;
+            width: 75px;
+            height: 25px;
+            border-radius: 10px;
+          "
+        >
+          Log out
+        </button>
+      </div>
+    </header>
+    <div class="categories text-center" style="margin-top: 25px">
+      <button type="button" class="btn btn-outline-warning mx-1" id="allBtn">
+        All
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-warning mx-1"
+        id="breakfastBtn"
+      >
+        Breakfast
+      </button>
+      <button type="button" class="btn btn-outline-warning mx-1" id="lunchBtn">
+        Lunch
+      </button>
+      <button type="button" class="btn btn-outline-warning mx-1" id="shakesBtn">
+        Shakes
+      </button>
+      <button type="button" class="btn btn-outline-warning mx-1" id="dinnerBtn">
+        Dinner
+      </button>
+
+      <button
+        class="btn btn-outline-warning mx-1"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Filter oil
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item">High to low</a></li>
+        <li><a class="dropdown-item">Low to High</a></li>
+        <li><a class="dropdown-item">Most likes</a></li>
+      </ul>
+      <input
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        class="btn btn-outline-warning mx-1"
+      />
+      <button
+        class="btn btn-outline-warning mx-1"
+        type="submit"
+        style="color: rgb(255, 193, 7)"
+      >
+        Search
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-warning mx-1"
+        id="cart"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-cart"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+          />
+        </svg>
+      </button>
+    </div>
+    <div class="menu-items mt-5">
+      <div class="card mb-3 col-md-6" id="breakfast" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4 col-sm-12">
+            <img
+              src="./Foto/breakfast1.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Buttermilk Pancakes</h5>
+                <span class="price text-warning">$15.99</span>
+              </div>
+              <p class="card-text">
+                I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock
+                freegan copper mug whatever cold-pressed
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="breakfast" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4 col-sm-12">
+            <img
+              src="./Foto/brek3.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Croissant</h5>
+                <span class="price text-warning">$5.99</span>
+              </div>
+              <p class="card-text">
+                I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock
+                freegan copper mug whatever cold-pressed
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="dinner" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/dinnerd.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Diner Double</h5>
+                <span class="price text-warning">$23.99</span>
+              </div>
+              <p class="card-text">
+                vaporware iPhone mumblecore selvage raw denim slow-carb leggings
+                gochujang helvetica man braid jianbing. Marfa thundercats
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="shakes" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/godzila.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Godzilla Milkshake</h5>
+                <span class="price text-warning">$13.99</span>
+              </div>
+              <p class="card-text">
+                ombucha chillwave fanny pack 3 wolf moon street art photo booth
+                before they sold out organic viral.
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="breakfast" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/country.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Country Delight</h5>
+                <span class="price text-warning">$6.99</span>
+              </div>
+              <p class="card-text">
+                Shabby chic keffiyeh neutra snackwave pork belly shoreditch.
+                Prism austin mlkshk truffaut,
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="lunch" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/egg.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Egg Attack</h5>
+                <span class="price text-warning">$20.99</span>
+              </div>
+              <p class="card-text">
+                franzen vegan pabst bicycle rights kickstarter pinterest
+                meditation farm-to-table 90's pop-up
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="lunch" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/lunch1.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Vegetables</h5>
+                <span class="price text-warning">$20.99</span>
+              </div>
+              <p class="card-text">
+                franzen vegan pabst bicycle rights kickstarter pinterest
+                meditation farm-to-table 90's pop-up
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="lunch" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/lunch2.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Sandwich</h5>
+                <span class="price text-warning">$20.99</span>
+              </div>
+              <p class="card-text">
+                franzen vegan pabst bicycle rights kickstarter pinterest
+                meditation farm-to-table 90's pop-up
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="shakes" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/oreo.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Oreo Dream</h5>
+                <span class="price text-warning">$22.99</span>
+              </div>
+              <p class="card-text">
+                Portland chicharrones ethical edison bulb, palo santo craft beer
+                chia heirloom iPhone everyday
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="breakfast" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/beacon.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Bacon Overflow</h5>
+                <span class="price text-warning">$18.99</span>
+              </div>
+              <p class="card-text">
+                carry jianbing normcore freegan. Viral single-origin coffee
+                live-edge, pork belly cloud bread iceland put a bird
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="lunch" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/american.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">American Classic</h5>
+                <span class="price text-warning">$12.99</span>
+              </div>
+              <p class="card-text">
+                on it tumblr kickstarter thundercats migas everyday carry squid
+                palo santo leggings. Food truck truffaut
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="shakes" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/milk.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Quarantine Buddy</h5>
+                <span class="price text-warning">$16.99</span>
+              </div>
+              <p class="card-text">
+                skateboard fam synth authentic semiotics. Live-edge lyft af,
+                edison bulb yuccie crucifix microdosing.
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="shakes" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/milk2.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Milk shakes</h5>
+                <span class="price text-warning">$16.99</span>
+              </div>
+              <p class="card-text">
+                skateboard fam synth authentic semiotics. Live-edge lyft af,
+                edison bulb yuccie crucifix microdosing.
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="dinner" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/steak.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Steak Dinner</h5>
+                <span class="price text-warning">$39.99</span>
+              </div>
+              <p class="card-text">
+                skateboard fam synth authentic semiotics. Live-edge lyft af,
+                edison bulb yuccie crucifix microdosing.
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="dinner" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/dinner1.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Meat balls</h5>
+                <span class="price text-warning">$23.99</span>
+              </div>
+              <p class="card-text">
+                vaporware iPhone mumblecore selvage raw denim slow-carb leggings
+                gochujang helvetica man braid jianbing. Marfa thundercats
+              </p>
+              <div style="display: flex; justify-content: flex-end">
+                <button type="submit" class="btn btn-primary">Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 col-md-6" id="dinner" style="max-width: 660px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="./Foto/dinner2.avif"
+              class="img-fluid rounded-start border border-warning border-2"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- <h5 class="card-title d-inline">Card title <span class="price">$15.99</span></h5> -->
+              <div class="card-title">
+                <h5 class="d-inline">Nachos</h5>
+                <span class="price text-warning">$23.99</span>
+              </div>
+              <p class="card-text">
+                vaporware iPhone mumblecore selvage raw denim slow-carb leggings
+                gochujang helvetica man braid jianbing. Marfa thundercats
+              </p>
+            </div>
+            <div style="display: flex; justify-content: flex-end">
+              <button type="submit" class="btn btn-primary">Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer" style="background-color: rgb(73, 60, 60)">
+      <div class="container grid grid--footer">
+        <nav class="logo-col">
+          <a href="#" class="footer-logo">
+            <img
+              class="logo"
+              alt="JS 23/1 logo"
+              src="./JS 231 kitchen (1).png"
+            />
+          </a>
+
+          <ul class="social-links">
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
+              ></a>
+            </li>
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
+              ></a>
+            </li>
+          </ul>
+
+          <p class="copyright">
+            Copyright &copy; <span class="year">2027</span> by JS 23/1 kitchen,
+            Inc. All rights reserved.
+          </p>
+        </nav>
+        <div class="address-col">
+          <p class="footer-heading">Contact us</p>
+          <address class="contacts">
+            <p class="address">
+              623 Harrison St., 2nd Floor, San Francisco, CA 94107
+            </p>
+            <p>
+              <a class="footer-link" href="tel:415-201-6370">415-201-6370</a
+              ><br />
+              <a class="footer-link" href="mailto:hello@omnifood.com"
+                >hello@js23kitchen.com</a
+              >
+            </p>
+          </address>
+        </div>
+        <nav class="nav-col">
+          <p class="footer-heading">Account</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="">Create account</a></li>
+            <li><a class="footer-link" href="#">Sign in</a></li>
+            <li><a class="footer-link" href="#">iOS app</a></li>
+            <li><a class="footer-link" href="#">Android app</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="">About Omnifood</a></li>
+            <li><a class="footer-link" href="#">Cooking partners</a></li>
+            <li><a class="footer-link" href="#">For Business</a></li>
+            <li><a class="footer-link" href="#">Careers</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">Recipe directory</a></li>
+            <li><a class="footer-link" href="#">Help center</a></li>
+            <li><a class="footer-link" href="#">Privacy & terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./modules/cards.js"></script>
+  </body>
+</html>
