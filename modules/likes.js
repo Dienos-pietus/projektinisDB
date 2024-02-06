@@ -14,11 +14,7 @@ const db = getDatabase();
 const auth = getAuth(app)
 
 function likes() {
-    const iflikes = localStorage.getItem("likesStorage");
-    const likedMenu = iflikes === null ? [] : JSON.parse(iflikes);
-    const likeCounter = {
-        
-    }
+    const likedMenu = []
 
     const cards = document.querySelectorAll('.menu-items > div');
 
@@ -44,9 +40,28 @@ function likes() {
                 const id = `like${index}`;
                 like.setAttribute("id", id);
                 like.style.position = "absolute";
-                like.style.width = "35px";
+                like.style.width = "38px";
                 like.style.height = "60px";
                 like.style.backgroundColor = "black";
+                const counter = document.createElement("h3")
+                counter.style.position="absolute"
+                counter.style.margin="5px 14px"
+                counter.style.color="purple"
+                if(counter.innerText===""){counter.innerText=0}
+                //----
+                let likeCounter = 0
+                get(child(ref(db),"/LikesCounter/"+ id))
+                .then((snapshot)=>{
+                    if (snapshot.exists()){
+                        const userDataFromDb = snapshot.val()
+                        if(userDataFromDb.id===id){
+                            likeCounter += userDataFromDb.Number
+
+                            counter.innerText=likeCounter
+                        }
+                    }
+                })
+                //------------
                 if (likedMenu.includes(id)) {
                     like.style.color = "red";
                 } else {
@@ -55,23 +70,30 @@ function likes() {
                 like.innerHTML = "&#9825;";
                 like.style.fontSize = "50px";
                 like.style.textAlign = "start";
-                el.append(like);
+                el.append(like, counter);
                 like.addEventListener('click', (ev) => {
+                    
                     ev.preventDefault();
                     if (like.style.color === "white") {
                         like.style.color = "red";
+                        likeCounter++
                         if(!likedMenu.includes(id)){likedMenu.push(id);}
                         
                     } else {
                         like.style.color = "white";
+                        likeCounter--
                         likedMenu.splice(likedMenu.indexOf(id), 1);
                     }
+                    counter.innerText=likeCounter
                     set(ref(db, 'Likes/' + user.uid), {
                         Likes:likedMenu
                         });
-                        console.log(likedMenu);
-                    localStorage.setItem("likesStorage", JSON.stringify(likedMenu));
+                    set(ref(db, 'LikesCounter/' + id), {
+                        Number:likeCounter,
+                        id: id
+                        });
                 });
+                
             });
             //--------
             set(ref(db, 'Likes/' + user.uid), {
