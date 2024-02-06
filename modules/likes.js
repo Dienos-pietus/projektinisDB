@@ -16,6 +16,9 @@ const auth = getAuth(app)
 function likes() {
     const iflikes = localStorage.getItem("likesStorage");
     const likedMenu = iflikes === null ? [] : JSON.parse(iflikes);
+    const likeCounter = {
+        
+    }
 
     const cards = document.querySelectorAll('.menu-items > div');
 
@@ -54,10 +57,10 @@ function likes() {
                 like.style.textAlign = "start";
                 el.append(like);
                 like.addEventListener('click', (ev) => {
+                    ev.preventDefault();
                     set(ref(db, 'Likes/' + user.uid), {
                         Likes:likedMenu
                         });
-                    ev.preventDefault();
                     if (like.style.color === "white") {
                         like.style.color = "red";
                         likedMenu.push(id);
