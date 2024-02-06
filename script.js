@@ -11,3 +11,7 @@ openModal();
 openModal1();
 closeModal();
 closeModal1();
+
+
+signin()
+login()
