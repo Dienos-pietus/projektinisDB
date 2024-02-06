@@ -16,58 +16,68 @@ export function createMealModal() {
     modalContainer.style.position = "fixed";
     modalContainer.style.top = "50%";
     modalContainer.style.left = "50%";
-    modalContainer.style.transform = "translate(-50%, -50%)";
     modalContainer.style.zIndex = "10";
 
     const modalDialog = document.createElement("div");
     modalDialog.classList.add("modal-dialog");
-    modalContainer.appendChild(modalDialog);
+    modalContainer.append(modalDialog);
 
     const modalContent = document.createElement("div");
     modalContent.classList.add("modal-content");
-    modalDialog.appendChild(modalContent);
+    modalDialog.append(modalContent);
 
     const modalHeader = document.createElement("div");
     modalHeader.classList.add("modal-header");
-    modalContent.appendChild(modalHeader);
+    modalContent.append(modalHeader);
 
     const modalTitle = document.createElement("h5");
     modalTitle.classList.add("modal-title");
     modalTitle.id = "mealModalLabel";
     modalTitle.textContent = "Add Meal";
-    modalHeader.appendChild(modalTitle);
+    modalHeader.append(modalTitle);
 
     const modalBody = document.createElement("div");
     modalBody.classList.add("modal-body");
-    modalContent.appendChild(modalBody);
+    modalContent.append(modalBody);
 
     const titleInput = document.createElement("input");
     titleInput.classList.add("form-control");
     titleInput.setAttribute("type", "text");
     titleInput.setAttribute("placeholder", "Meal Title");
-    modalBody.appendChild(titleInput);
+    modalBody.append(titleInput);
 
     const priceInput = document.createElement("input");
     priceInput.classList.add("form-control");
     priceInput.setAttribute("type", "number");
     priceInput.setAttribute("placeholder", "Price");
-    modalBody.appendChild(priceInput);
+    modalBody.append(priceInput);
 
     const descriptionInput = document.createElement("input");
     descriptionInput.classList.add("form-control");
     descriptionInput.setAttribute("type", "text");
     descriptionInput.setAttribute("placeholder", "Description");
-    modalBody.appendChild(descriptionInput);
+    modalBody.append(descriptionInput);
 
     const pictureURLInput = document.createElement("input");
     pictureURLInput.classList.add("form-control");
     pictureURLInput.setAttribute("type", "text");
     pictureURLInput.setAttribute("placeholder", "Picture URL");
-    modalBody.appendChild(pictureURLInput);
+    modalBody.append(pictureURLInput);
+
+    const selectCategory = document.createElement("select");
+    selectCategory.classList.add("form-control");
+    const categories = ["breakfast", "lunch", "dinner", "shakes"];
+    categories.forEach(category => {
+        const option = document.createElement("option");
+        option.value = category;
+        option.textContent = category;
+        selectCategory.append(option);
+    });
+    modalBody.append(selectCategory);
 
     const modalFooter = document.createElement("div");
     modalFooter.classList.add("modal-footer");
-    modalContent.appendChild(modalFooter);
+    modalContent.append(modalFooter);
 
     const submitBtn = document.createElement("button");
     submitBtn.classList.add("btn", "btn-success");
@@ -77,6 +87,7 @@ export function createMealModal() {
         const price = priceInput.value;
         const description = descriptionInput.value;
         const pictureURL = pictureURLInput.value;
+        const category = selectCategory.value;
 
         const mealRef = ref(database, "meals");
         const newMealRef = push(mealRef);
@@ -85,12 +96,13 @@ export function createMealModal() {
             price: price,
             description: description,
             pictureURL: pictureURL,
-            likes: 0
+            category: category,
+            likes: 0,
         });
 
         modalContainer.remove();
     });
-    modalFooter.appendChild(submitBtn);
+    modalFooter.append(submitBtn);
 
     const cancelBtn = document.createElement("button");
     cancelBtn.classList.add("btn", "btn-danger");
@@ -98,7 +110,7 @@ export function createMealModal() {
     cancelBtn.addEventListener("click", () => {
         modalContainer.remove();
     });
-    modalFooter.appendChild(cancelBtn);
+    modalFooter.append(cancelBtn);
 
-    document.body.appendChild(modalContainer);
+    document.body.append(modalContainer);
 }
