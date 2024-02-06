@@ -3,12 +3,12 @@ import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/
 import { firebaseConfig } from "./firebase.js";
 
 export function createMealModal() {
+    const firebaseApp = initializeApp(firebaseConfig);
+    const database = getDatabase(firebaseApp);
+
     const modalContainer = document.createElement("div");
     modalContainer.classList.add("modal", "fade", "show");
     modalContainer.id = "mealModalContainer";
-    modalContainer.setAttribute("tabindex", "-1");
-    modalContainer.setAttribute("aria-labelledby", "mealModalLabel");
-    modalContainer.setAttribute("aria-hidden", "true");
     modalContainer.style.display = "block";
     modalContainer.style.backgroundColor = "white";
     modalContainer.style.width = "400px";
@@ -17,7 +17,7 @@ export function createMealModal() {
     modalContainer.style.top = "50%";
     modalContainer.style.left = "50%";
     modalContainer.style.transform = "translate(-50%, -50%)";
-    modalContainer.style.zIndex = "9999";
+    modalContainer.style.zIndex = "10";
 
     const modalDialog = document.createElement("div");
     modalDialog.classList.add("modal-dialog");
@@ -73,7 +73,21 @@ export function createMealModal() {
     submitBtn.classList.add("btn", "btn-success");
     submitBtn.textContent = "Submit";
     submitBtn.addEventListener("click", () => {
-        // Submit logic here
+        const title = titleInput.value;
+        const price = priceInput.value;
+        const description = descriptionInput.value;
+        const pictureURL = pictureURLInput.value;
+
+        const mealRef = ref(database, "meals");
+        const newMealRef = push(mealRef);
+        set(newMealRef, {
+            title: title,
+            price: price,
+            description: description,
+            pictureURL: pictureURL,
+            likes: 0
+        });
+
         modalContainer.remove();
     });
     modalFooter.appendChild(submitBtn);
