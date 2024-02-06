@@ -64,8 +64,9 @@ regBtn.addEventListener("click", (e) => {
             const loginTime = new Date();
             update(ref(db, "/users/" + user.uid), {
               timestamp: `${loginTime}`,
+            }).then(() => {
+              window.location.href = 'menu.html';
             });
-            window.location.href = 'menu.html';
           })
           .catch((error) => {
            showModal(`Tokio vartotojo nėra arba neteisingai įvedėte slaptažodį`)
