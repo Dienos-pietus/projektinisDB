@@ -560,6 +560,31 @@
         </div>
       </div>
     </div>
+    <!-- order modal -->
+    <div class="modal" id="orderModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Order</h5>
+            <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Thank you for your order</p>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choose a delivery option </option>
+              <option value="1">Wolt</option>
+              <option value="2">Uber Eats</option>
+              <option value="3">DoorDash</option>
+              <option value="4">Picking up myself</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="completeOrderBtn" class="btn btn-primary">Order</button>
+            <button type="button" id="cancelOrderBtn" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer class="footer" style="background-color: rgb(73, 60, 60)">
       <div class="container grid grid--footer">
         <nav class="logo-col">
@@ -646,5 +671,6 @@
     ></script>
     <script type="module" src="./modules/cards.js"></script>
     <script type="module" src="./modules/likes.js"></script>
+    <script type="module" src="./modules/orders.js"></script>
   </body>
 </html>
