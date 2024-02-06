@@ -26,14 +26,10 @@ function likes() {
         .then((snapshot)=>{
             if (snapshot.exists()){
                 const userDataFromDb = snapshot.val()
-                console.log(userDataFromDb);
                 userDataFromDb.Likes.forEach((el)=>{
                     if (!likedMenu.includes(el)) {
                         likedMenu.push(el)
                     }
-                    console.log(el);
-                    
-                    console.log(likedMenu);
                 })
 
             }
@@ -65,11 +61,9 @@ function likes() {
                     if (like.style.color === "white") {
                         like.style.color = "red";
                         likedMenu.push(id);
-                        console.log(likedMenu);
                     } else {
                         like.style.color = "white";
                         likedMenu.splice(likedMenu.indexOf(id), 1);
-                        console.log(likedMenu);
                     }
                     localStorage.setItem("likesStorage", JSON.stringify(likedMenu));
                 });
@@ -78,7 +72,6 @@ function likes() {
             set(ref(db, 'Likes/' + user.uid), {
             Likes:likedMenu
             });
-            console.log(likedMenu);
             //------------
         })
         
