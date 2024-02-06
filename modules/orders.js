@@ -50,16 +50,15 @@ console.log(orderButtons);
 const orderBtn = document.querySelector(".btn-primary");
 console.log(orderBtn);
 const orderModal = document.getElementById("orderModal");
-const completeOrderBtn = document.getElementById("completeOrderBtn")
-const cancelOrderBtn = document.getElementById("cancelOrderBtn")
+const completeOrderBtn = document.getElementById("completeOrderBtn");
+const cancelOrderBtn = document.getElementById("cancelOrderBtn");
 
-function showModal() {
+function showOrderModal() {
   orderModal.style.display = "block";
 }
-function hideModal() {
+function hideOrderModal() {
   orderModal.style.display = "none";
 }
 
-orderBtn.addEventListener("click", showModal);
-cancelOrderBtn.addEventListener("click", hideModal)
-
+orderBtn.addEventListener("click", showOrderModal);
+cancelOrderBtn.addEventListener("click", hideOrderModal);
