@@ -58,16 +58,18 @@ function likes() {
                 el.append(like);
                 like.addEventListener('click', (ev) => {
                     ev.preventDefault();
-                    set(ref(db, 'Likes/' + user.uid), {
-                        Likes:likedMenu
-                        });
                     if (like.style.color === "white") {
                         like.style.color = "red";
-                        likedMenu.push(id);
+                        if(!likedMenu.includes(id)){likedMenu.push(id);}
+                        
                     } else {
                         like.style.color = "white";
                         likedMenu.splice(likedMenu.indexOf(id), 1);
                     }
+                    set(ref(db, 'Likes/' + user.uid), {
+                        Likes:likedMenu
+                        });
+                        console.log(likedMenu);
                     localStorage.setItem("likesStorage", JSON.stringify(likedMenu));
                 });
             });
