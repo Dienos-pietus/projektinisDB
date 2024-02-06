@@ -10,11 +10,10 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    onAuthStateChanged,
   } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
   import { showModal } from "./modulas.js";
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+const db = getDatabase();
 const auth = getAuth(app)
 
 
@@ -42,6 +41,8 @@ regBtn.addEventListener("click", (e) => {
           email: email,
           role: "simple",
           timestamp: `${registerTime}`,
+        }).then(() => {
+          window.location.href = 'menu.html';
         });
       })
       .catch((error) => {
@@ -67,17 +68,8 @@ regBtn.addEventListener("click", (e) => {
             window.location.href = 'menu.html';
           })
           .catch((error) => {
-          //  showModal(`Tokio vartotojo nėra arba neteisingai įvedėte slaptažodį`)
-          const errorCode = error.code;
-          const errorMessage = error.message;
+           showModal(`Tokio vartotojo nėra arba neteisingai įvedėte slaptažodį`)
           });
       });
   }
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // Jei vartotojas prisijungęs, nukreipiame jį į 'menu.html'
-      window.location.href = 'menu.html';
-    }
-  });
-
   export { signin, login }
