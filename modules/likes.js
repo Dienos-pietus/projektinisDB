@@ -38,8 +38,6 @@ function likes() {
                 likedMenu.splice(likedMenu.indexOf(id), 1)
                 console.log(likedMenu);
             }
-        console.log(cardsArray);
-           
         localStorage.setItem("likesStorage", JSON.stringify(likedMenu))
 
         })
