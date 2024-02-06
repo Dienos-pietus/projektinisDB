@@ -73,3 +73,17 @@ outBtn.addEventListener("click", (event) => {
       console.log(error);
     });
 });
+
+//liked---------------
+document.querySelector("#likedBtn").addEventListener("click", function () {
+  const liked = document.querySelectorAll(".card>button")
+  let index = 0
+  items.forEach((item) => {
+    const like = document.getElementById(`like${index++}`)
+    if (like.style.color != "red") {
+      item.style.display = "none";
+    } else {
+      item.style.display = "grid";
+    }
+  });
+});
