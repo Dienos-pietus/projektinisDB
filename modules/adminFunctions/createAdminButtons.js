@@ -12,7 +12,7 @@ function createAddMealButton() {
 
     const categories = document.querySelector('.categories');
     categories.appendChild(addMealButton);
-}
+};
 
 // Call the function to create "Add Meal" button, needs to be run on authentication
 createAddMealButton();

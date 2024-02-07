@@ -1,6 +1,9 @@
+// creates new meal input modal and saves values to the database
+
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { firebaseConfig } from "./firebase.js";
+import { firebaseConfig } from "../firebase.js";
 
 export function createMealModal() {
     // Initialize Firebase app and get the database reference
@@ -9,12 +12,12 @@ export function createMealModal() {
 
     // Create modal container
     const modalContainer = document.createElement("div");
-    modalContainer.classList.add("modal", "fade", "show");
+    modalContainer.classList.add("modal", "fade", "show", "border", "border-warning", "border-2");
     modalContainer.id = "mealModalContainer";
     modalContainer.style.display = "block";
     modalContainer.style.backgroundColor = "white";
     modalContainer.style.width = "400px";
-    modalContainer.style.height = "400px";
+    modalContainer.style.height = "450px";
     modalContainer.style.position = "fixed";
     modalContainer.style.top = "50%";
     modalContainer.style.left = "50%";
@@ -30,7 +33,7 @@ export function createMealModal() {
     modalContent.classList.add("modal-content");
     modalDialog.append(modalContent);
 
-    // Create modal header
+    // Create modal header container
     const modalHeader = document.createElement("div");
     modalHeader.classList.add("modal-header");
     modalContent.append(modalHeader);
@@ -56,11 +59,11 @@ export function createMealModal() {
 
     const priceInput = document.createElement("input");
     priceInput.classList.add("form-control");
-    priceInput.setAttribute("type", "number");
+    priceInput.setAttribute("type", "text");
     priceInput.setAttribute("placeholder", "Price");
     modalBody.append(priceInput);
 
-    const descriptionInput = document.createElement("input");
+    const descriptionInput = document.createElement("textarea");
     descriptionInput.classList.add("form-control");
     descriptionInput.setAttribute("type", "text");
     descriptionInput.setAttribute("placeholder", "Description");
