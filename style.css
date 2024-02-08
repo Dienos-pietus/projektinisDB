@@ -409,6 +409,7 @@ body {
   font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 4rem;
+  color: #856b39;
 }
 
 .contacts {
@@ -419,6 +420,7 @@ body {
 
 .address {
   margin-bottom: 2.4rem;
+  color: #856b39;
 }
 
 .footer-nav {
@@ -596,9 +598,178 @@ body {
   max-width: 100%;
   height: 450px;
 }
+
+/**************** ABOUT CART **************/
+.formHeading-cart {
+  color: #856b39;
+  margin-top: 3.2rem;
+  border-bottom: 1px solid #856b39;
+}
+
+.modal-cart {
+  position: absolute;
+  z-index: 1;
+  right: 26rem;
+  border: 1px solid #856b39;
+  background-color: #000;
+  height: 40rem;
+  width: 40rem;
+  overflow: scroll;
+  scrollbar-color: #856b39 transparent;
+}
+
+.modal-cart .card-body {
+  margin-top: 5rem;
+}
+
+.modal-cart .d-inline {
+  color: #b1a58d;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+.modal-cart .card-text {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.modal-cart .price {
+  color: #b1a58d !important;
+  font-size: 1.6rem;
+}
+
+.modal-cart .btn {
+  background-color: #856b39 !important;
+  border: 0;
+  font-size: 1.6rem;
+}
+
+.close-modal-cart {
+  position: absolute;
+  right: 2rem;
+  /* padding: 2px 4px; */
+  border: 0;
+  /* margin: 1rem; */
+  background-color: transparent;
+  color: #856b39;
+  font-size: 3.2rem;
+}
+
 #cart {
   font-weight: 700;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-style: italic;
   text-decoration: none;
+}
+
+/* *************************** CART **************************** */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+.section-header {
+  font-family: "Metal Mania";
+  font-weight: normal;
+  color: #333;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.cart-row {
+  display: flex;
+}
+
+.cart-item {
+  width: 45%;
+}
+
+.cart-header {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.cart-column {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-right: 1.5em;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cart-item-image {
+  width: 75px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cart-item-title {
+  color: #333;
+  margin-left: 0.5em;
+  font-size: 1.2em;
+}
+
+.cart-price {
+  width: 20%;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.cart-quantity {
+  width: 35%;
+}
+
+.btn {
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.67em 0.67em;
+  cursor: pointer;
+}
+
+.btn-danger {
+  color: white;
+  background-color: #eb5757;
+  border: none;
+  border-radius: 0.3em;
+  font-weight: bold;
+}
+
+.cart-row .cart-quantity-input {
+  font-size: 1.6rem;
+}
+
+.cart-item-title,
+.cart-price {
+  font-size: 1.6rem;
+}
+
+.cart-total-price,
+.cart-total-title {
+  font-size: 1.6rem;
+}
+
+.btn-remove {
+  font-size: 1.6rem;
+  padding: 4px 8px;
+  margin-left: 1rem;
+  background-color: #eb5757;
+  color: #fff;
+  border: 0;
+}
+
+.btn-purchase {
+  padding: 6px 12px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: 0;
+  background-color: transparent;
+  border: 1px solid #000;
+}
+
+.btn-purchase:hover {
+  background-color: #017e01;
+  color: #fff;
+  border: 1px solid #017e01;
 }
