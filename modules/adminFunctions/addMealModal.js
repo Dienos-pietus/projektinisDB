@@ -12,7 +12,7 @@ export function createMealModal() {
 
     // Create modal container
     const modalContainer = document.createElement("div");
-    modalContainer.classList.add("modal", "fade", "show", "border-warning", "border-3");
+    modalContainer.classList.add("modal", "fade", "show", "border-warning", "border-2");
     modalContainer.id = "mealModalContainer";
     modalContainer.style.display = "block";
     modalContainer.style.backgroundColor = "white";
@@ -23,15 +23,10 @@ export function createMealModal() {
     modalContainer.style.left = "50%";
     modalContainer.style.zIndex = "10";
 
-    // Create modal dialog
-    const modalDialog = document.createElement("div");
-    modalDialog.classList.add("modal-dialog", "my-0", "mx-0");
-    modalContainer.append(modalDialog);
-
     // Create modal content
     const modalContent = document.createElement("div");
     modalContent.classList.add("modal-content", "my-0", "mx-0");
-    modalDialog.append(modalContent);
+    modalContainer.append(modalContent);
 
     // Create modal header container
     const modalHeader = document.createElement("div");
