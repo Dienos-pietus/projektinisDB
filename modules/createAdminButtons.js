@@ -1,4 +1,5 @@
 import { createMealModal } from "./addMealModal.js";
+import { displayMealCards } from "./cardDisplay.js";
 
 function createAddMealButton() {
     const addMealButton = document.createElement('button');
@@ -14,24 +15,15 @@ function createAddMealButton() {
     categories.appendChild(addMealButton);
 }
 
-
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { firebaseConfig } from "./firebase.js";
-import {
-    getDatabase,
-    ref,
-    get,
-    child,
-  } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-  import {
-    getAuth,
-    onAuthStateChanged,
-  } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { createButton } from "./removeUsers.js"
+
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
-const auth = getAuth(app)
-
+const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -43,8 +35,12 @@ onAuthStateChanged(auth, (user) => {
             const userRole = userDataFromDB.role;
             if (userRole === "admin") {
                 createAddMealButton();
-            } 
+                displayMealCards(true);
+                createButton();
+            } else {
+                displayMealCards(false);
+            }
           } 
         })
     }
-  });
+});

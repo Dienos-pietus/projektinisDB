@@ -1,9 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import { firebaseConfig } from "./firebase.js";
 import { likes } from "./likes.js";
 
-function displayMealCards() {
+function displayMealCards(isAdmin) {
     const firebaseApp = initializeApp(firebaseConfig);
     const database = getDatabase(firebaseApp);
 
@@ -34,17 +34,63 @@ function displayMealCards() {
                                 <span class="price text-warning">$${meal.price}</span>
                             </div>
                             <p class="card-text">${meal.description}</p>
-                            <div style="display: flex; justify-content: flex-end">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
                                 <button type="submit" class="btn btn-primary">Order</button>
+                                ${isAdmin ? `<button type="button" class="btn btn-danger delete-btn">Delete</button>` : ''}
                             </div>
                         </div>
                     </div>
                 </div>
             `;
-            likes(cardDiv,mealKey)
+            likes(cardDiv, mealKey);
             cardsContainer.appendChild(cardDiv);
         }
+
+
+        cardsContainer.addEventListener('click', function(event) {
+            if (isAdmin && event.target.classList.contains('delete-btn')) {
+                const cardId = event.target.closest('.card').id;
+                handleCardDeletion(cardId);
+            }
+        });
     });
 }
 
-document.addEventListener("DOMContentLoaded", displayMealCards);
+function handleCardDeletion(cardId) {
+    const cardToDelete = document.getElementById(cardId);
+    if (cardToDelete) {
+        cardToDelete.remove();
+    }
+
+    const firebaseApp = initializeApp(firebaseConfig);
+    const database = getDatabase(firebaseApp);
+    const mealsRef = ref(database, "meals/" + cardId);
+    
+    remove(mealsRef)
+        .then(() => {
+            console.log("Card and corresponding meal data deleted successfully.");
+            
+            const likesRef = ref(database, "Likes/" + cardId);
+            remove(likesRef)
+                .then(() => {
+                    console.log("Likes associated with the meal deleted successfully.");
+                })
+                .catch((error) => {
+                    console.error("Error deleting likes:", error);
+                });
+
+            const likeCounterRef = ref(database, "LikeCounter/" + cardId);
+            remove(likeCounterRef)
+                .then(() => {
+                    console.log("Like counter associated with the meal deleted successfully.");
+                })
+                .catch((error) => {
+                    console.error("Error deleting like counter:", error);
+                });
+        })
+        .catch((error) => {
+            console.error("Error deleting card and meal data:", error);
+        });
+}
+
+export { displayMealCards };
