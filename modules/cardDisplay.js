@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import { firebaseConfig } from "./firebase.js";
+import { likes } from "./likes.js";
 
 function displayMealCards() {
     const firebaseApp = initializeApp(firebaseConfig);
@@ -20,6 +21,7 @@ function displayMealCards() {
 
             const cardDiv = document.createElement("div");
             cardDiv.classList.add("card", "mb-3");
+            cardDiv.setAttribute("id", `${mealKey}`); 
             cardDiv.innerHTML = `
                 <div class="row g-0" id="${meal.category}">
                     <div class="col-md-4 col-sm-12">
@@ -39,7 +41,7 @@ function displayMealCards() {
                     </div>
                 </div>
             `;
-
+            likes(cardDiv,mealKey)
             cardsContainer.appendChild(cardDiv);
         }
     });
