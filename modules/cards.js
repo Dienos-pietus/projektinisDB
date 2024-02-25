@@ -48,18 +48,19 @@ outBtn.addEventListener("click", (event) => {
     .catch((error) => {
       console.log(error);
     });
+  localStorage.clear()
 });
 
 //liked---------------
 document.querySelector("#likedBtn").addEventListener("click", function () {
-  const liked = document.querySelectorAll(".card>button")
-  let index = 0
-  items.forEach((item) => {
-    const like = document.getElementById(`like${index++}`)
-    if (like.style.color != "red") {
+  const liked = document.querySelectorAll(".card")
+  liked.forEach((item) => {
+    const id = item.id 
+    const likeBtn = document.querySelector(`#${id}>button`)
+    if (likeBtn.style.color != "red") {
       item.style.display = "none";
     } else {
-      item.style.display = "grid";
+      item.style.display = "block";
     }
   });
 });
