@@ -11,54 +11,30 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const auth = getAuth(app)
 
-const items = document.querySelectorAll(".card");
+const allBtn = document.getElementById("allBtn");
+const breakfastBtn = document.getElementById("breakfastBtn");
+const lunchBtn = document.getElementById("lunchBtn");
+const shakesBtn = document.getElementById("shakesBtn");
+const dinnerBtn = document.getElementById("dinnerBtn");
 
-document.querySelector("#breakfastBtn").addEventListener("click", function () {
-  items.forEach((item) => {
-    // console.log(item);
-    if (item.id != "breakfast") {
-      item.style.display = "none";
-    } else {
-      item.style.display = "grid";
-    }
-  });
-});
-document.querySelector("#lunchBtn").addEventListener("click", function () {
-  items.forEach((item) => {
-    // console.log(item);
-    if (item.id != "lunch") {
-      item.style.display = "none";
-    } else {
-      item.style.display = "grid";
-    }
-  });
-});
-document.querySelector("#shakesBtn").addEventListener("click", function () {
-  items.forEach((item) => {
-    // console.log(item);
-    if (item.id != "shakes") {
-      item.style.display = "none";
-    } else {
-      item.style.display = "grid";
-    }
-  });
-});
-document.querySelector("#dinnerBtn").addEventListener("click", function () {
-  items.forEach((item) => {
-    // console.log(item);
-    if (item.id != "dinner") {
-      item.style.display = "none";
-    } else {
-      item.style.display = "grid";
-    }
-  });
-});
+// Add click event listeners to each button
+allBtn.addEventListener("click", filterCards);
+breakfastBtn.addEventListener("click", filterCards);
+lunchBtn.addEventListener("click", filterCards);
+shakesBtn.addEventListener("click", filterCards);
+dinnerBtn.addEventListener("click", filterCards);
 
-document.querySelector("#allBtn").addEventListener("click", function () {
-  items.forEach((element) => {
-    element.style.display = "grid";
-  });
-});
+function filterCards(event) {
+    const category = event.target.id.slice(0, -3); // Get the category from the button id
+    const cards = document.querySelectorAll(".card"); // Select all card elements
+    cards.forEach(card => {
+        if (category === "all") {
+            card.style.display = "block"; // Display all cards if "All" button is clicked
+        } else {
+            card.style.display = card.querySelector(`#${category}`) ? "block" : "none"; // Show card if it matches the category, hide otherwise
+        }
+    });
+}
 
 let outBtn = document.getElementById("signout")
 
@@ -72,18 +48,19 @@ outBtn.addEventListener("click", (event) => {
     .catch((error) => {
       console.log(error);
     });
+  localStorage.clear()
 });
 
 //liked---------------
 document.querySelector("#likedBtn").addEventListener("click", function () {
-  const liked = document.querySelectorAll(".card>button")
-  let index = 0
-  items.forEach((item) => {
-    const like = document.getElementById(`like${index++}`)
-    if (like.style.color != "red") {
+  const liked = document.querySelectorAll(".card")
+  liked.forEach((item) => {
+    const id = item.id 
+    const likeBtn = document.querySelector(`#${id}>button`)
+    if (likeBtn.style.color != "red") {
       item.style.display = "none";
     } else {
-      item.style.display = "grid";
+      item.style.display = "block";
     }
   });
 });

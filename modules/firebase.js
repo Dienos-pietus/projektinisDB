@@ -1,7 +1,7 @@
 export const firebaseConfig = {
   apiKey: "AIzaSyAzCE06whwP65KqnMGuJ6RHEpzAjbBh5KY",
   authDomain: "dienos-pietus-6a881.firebaseapp.com",
-  databaseURL: "https://dienos-pietus-6a881-default-rtdb.europe-west1.firebasedatabase.app",
+  databaseURL: "https://dienos-pietus-6a881-default-rtdb.europe-west1.firebasedatabase.app/",
   projectId: "dienos-pietus-6a881",
   storageBucket: "dienos-pietus-6a881.appspot.com",
   messagingSenderId: "889618269761",
